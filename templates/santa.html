@@ -1,0 +1,61 @@
+{% load static %}
+<html>
+    <head>
+        <title>sales page</title>
+       <script type="text/javascript">
+           function valid()
+           {
+               var phone=document.getElementById("phone").value;
+               var email=document.getElementById("email").value;
+               var pass=document.getElementById("pass").value;
+               var pass1=document.getElementById("pass1").value;
+               var regx1=/^[6-9][0-9]{9}$/;
+               var regx2=/^([a-z A-Z 0-9 \. -]+)@([a-z]{3,15}).[a-z]{3}$/;
+               if(regx1.test(phone)==false)
+               {
+                   alert("enter correct phone no");
+                   return false;
+               }
+               else if(regx2.test(email)==false){
+                   alert("check your email");
+                   return false;
+               }
+               else if(pass.trim().length<5)
+                   {
+                     alert("password sholdn't be empty and contain atleast 5 character");
+                     return false;
+                   }
+                else if(pass!=pass)
+                {
+                    alert("password is not matched");
+                    return false;
+                }
+
+               else{
+                   alert("correct");
+                   return true;
+               }
+               
+            }
+       </script>
+    </head>
+ <body style="background-color: GREY;">
+     <h1 style="background-color:GREEN;">REGISTRATION PAGE</h1>
+     <h3>please register for login our page</h3>
+     <form onsubmit="return valid()"  method="POST">
+         {% csrf_token %}
+     <input type="text" id="phone" placeholder="enter phone no" name="phoneno"><br><br>
+     <input type="text" id="email" placeholder="enter your mail" name="email"><br><br>
+     <input type="password" id="pass" placeholder="enter your password" name="password1"><br><br>
+     <input type="password" id="pass1" placeholder="enter confirm password" name="password2"><br><br>
+     <button style="background-color: turquoise;">click me</button>
+   
+    
+     </form>
+     <p> if you have already registerd click here</p>
+     <a href="C:\Users\Rakesh\icsoln\ganesh_designmatics\templates\signup.html"> click here</a>
+
+     
+ </body>
+
+</html>

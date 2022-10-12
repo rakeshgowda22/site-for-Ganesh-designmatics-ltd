@@ -1,0 +1,47 @@
+
+<html>
+    <head>
+        <title>sign up page</title>
+        <script type="text/javascript">
+            function val()
+            {
+                var email=document.getElementById("email").value;
+                var pass=document.getElementById("pass").value;
+                var regx=/^([a-z A-Z 0-9 \. -]+)@([a-z]{3,15}).[a-z]{3}$/;
+                if(regx.test(email)==false)
+                {
+                   alert("check your email");
+                   return false;
+                }
+                else if(pass.trim().length<5)
+                {
+                  alert("password sholdn't be empty and contain atleast 5 character");
+                  return false;
+                }
+                else{
+                    alert("correct");
+                    return true;
+                }
+  
+            }
+
+        </script>
+        </head>
+        <body style="background-color: GREY;">
+            <h1 style="background-color: BLUE;">LOGIN PAGE</h1>
+            <form onsubmit="return val()" method="POST">
+                {% csrf_token %}
+            <input type="text" id="phone" placeholder="enter phone no" name="phoneno"><br><br>
+            <input type="password" id="pass" placeholder="enter password" name="password" ><br>
+            <button>click me</button>
+            </form>
+            <div>
+                {% for message in messages %}
+                <h3>{{message}}</h3>
+                {% endfor %}
+            </div>
+            <p> if you dont have account click below to create account</p>
+            <button><a href="C:\Users\Rakesh\icsoln\ganesh_designmatics\templates\santha.html"> click here</a></button><br>
+    
+        </body>
+</html>
